@@ -1,39 +1,70 @@
-name: Nightly LLM Evaluation Pipeline
+name: LLM Evaluation Pipeline
 
 on:
-  schedule:
-    - cron: '0 2 * * *' # Run nightly at 2 AM UTC to catch model performance drift
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+  schedule:
+    # Daily regression check, independent of code changes — catches drift
+    # if the underlying model/API silently changes behavior.
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}
 
 jobs:
-  run-evals:
+  evals:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.12"
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-      - name: Run Pytest LLM Evaluation Harness
+      - name: Run harness quality-gate tests (pytest)
+        run: pytest tests/ -v --junitxml=reports/junit.xml
         env:
+          # Optional — if secrets are configured, the LLM-as-judge grader
+          # runs live instead of from the replay cache. The pipeline works
+          # correctly either way (see harness/llm_judge.py).
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          pytest tests/test_evals.py -v --md-report --html=eval_report.html
 
-      - name: Upload Evaluation Dashboard Artifacts
+      - name: Run eval pipeline + regression detection
+        id: run_evals
+        run: python scripts/run_evals.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Write job summary
+        if: always()
+        run: cat reports/report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload eval report artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: llm-eval-report
-          path: eval_report.html
+          name: eval-report
+          path: |
+            reports/report.md
+            reports/report.html
+            reports/latest_run.json
+            reports/history.json
+
+      - name: Commit updated run history
+        # Persists the trend across runs so the next run's regression
+        # detection has something real to compare against. Only runs on
+        # pushes to main (not PRs) to avoid noisy commits from forks/PRs.
+        if: github.event_name == 'push' || github.event_name == 'schedule'
+        run: |
+          git config user.name "eval-bot"
+          git config user.email "eval-bot@users.noreply.github.com"
+          git add reports/history.json
+          git diff --staged --quiet || git commit -m "chore: update eval run history [skip ci]"
+          git push || echo "Nothing to push"

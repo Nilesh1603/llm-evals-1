@@ -1,0 +1,24 @@
+{"id": "fqa_01", "model_output": "Canberra"}
+{"id": "fqa_02", "model_output": "Pride and Prejudice was written by Jane Austen in 1813."}
+{"id": "fqa_03", "model_output": "The Berlin Wall fell in 1991."}
+{"id": "fqa_04", "model_output": "The chemical symbol for tungsten is Tu."}
+{"id": "cgq_01", "model_output": "According to the passage, the refund window is 30 days."}
+{"id": "cgq_02", "model_output": "Refunds are processed within 5-7 business days once approved."}
+{"id": "cgq_03", "model_output": "Q3 revenue was $42.3 million."}
+{"id": "cgq_04", "model_output": "Growth was mainly driven by the consumer segment expanding overseas."}
+{"id": "hal_01", "model_output": "The passage doesn't mention who the CEO is."}
+{"id": "hal_02", "model_output": "Q3 net income was $8.1 million."}
+{"id": "hal_03", "model_output": "The passage does not state the number of employees."}
+{"id": "hal_04", "model_output": "You can reach customer support at 1-800-555-0199."}
+{"id": "sum_01", "model_output": "The city council approved a $1.2 billion light-rail extension from downtown to the airport, with construction starting in 2027 and taking about three years, despite cost concerns."}
+{"id": "sum_02", "model_output": "A university lab created a battery that lasts about twice as long as typical EV batteries, but it's still five years from commercial production."}
+{"id": "sum_03", "model_output": "Cloud revenue grew 22% and beat estimates."}
+{"id": "sum_04", "model_output": "A new irrigation system cut water use by 34% across 120 farms with no yield loss, though cost is a barrier to adoption."}
+{"id": "ext_01", "model_output": "{\"name\": \"Priya Nair\", \"email\": \"priya.nair@example.com\", \"phone\": \"555-0142\"}"}
+{"id": "ext_02", "model_output": "{\"name\": \"Devon Wright\", \"email\": \"devon.w@example.com\", \"phone\": null}"}
+{"id": "ext_03", "model_output": "{\"order_id\": \"A1092\", \"total\": \"58.40\", items: [water bottle, yoga mat]}"}
+{"id": "ext_04", "model_output": "{\"order_id\": \"B7734\", \"total\": 34.99, \"items\": [\"desk lamp\", \"notebook\", \"pen set\"]}"}
+{"id": "math_01", "model_output": "40 mph"}
+{"id": "math_02", "model_output": "$28"}
+{"id": "math_03", "model_output": "12 days"}
+{"id": "math_04", "model_output": "Tom is 10 years old."}

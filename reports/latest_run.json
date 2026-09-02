@@ -1,0 +1,1670 @@
+{
+  "run_id": "20260902T195107Z",
+  "timestamp": "2026-09-02T19:51:07.004122+00:00",
+  "git_sha": "local",
+  "total": 24,
+  "passed": 15,
+  "pass_rate": 0.625,
+  "failed_ids": [
+    "fqa_03",
+    "fqa_04",
+    "cgq_04",
+    "hal_02",
+    "hal_04",
+    "sum_02",
+    "sum_03",
+    "ext_03",
+    "math_02"
+  ],
+  "category_breakdown": {
+    "context_grounded_qa": {
+      "total": 4,
+      "passed": 3,
+      "pass_rate": 0.75
+    },
+    "factual_qa": {
+      "total": 4,
+      "passed": 2,
+      "pass_rate": 0.5
+    },
+    "hallucination_trap": {
+      "total": 4,
+      "passed": 2,
+      "pass_rate": 0.5
+    },
+    "reasoning_math": {
+      "total": 4,
+      "passed": 3,
+      "pass_rate": 0.75
+    },
+    "structured_extraction": {
+      "total": 4,
+      "passed": 3,
+      "pass_rate": 0.75
+    },
+    "summarization": {
+      "total": 4,
+      "passed": 2,
+      "pass_rate": 0.5
+    }
+  },
+  "results": [
+    {
+      "id": "fqa_01",
+      "category": "factual_qa",
+      "difficulty": "easy",
+      "prompt": "What is the capital of Australia?",
+      "model_output": "Canberra",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "canberra"
+          ],
+          "matched_tokens": [
+            "canberra"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "canberra"
+          ],
+          "matched_tokens": [
+            "canberra"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": false,
+          "faithful": true,
+          "unsupported_claims": []
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "fqa_01",
+        "score": 5,
+        "rationale": "Correct capital, matches reference exactly.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "fqa_02",
+      "category": "factual_qa",
+      "difficulty": "easy",
+      "prompt": "Who wrote the novel 'Pride and Prejudice'?",
+      "model_output": "Pride and Prejudice was written by Jane Austen in 1813.",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "austen",
+            "jane"
+          ],
+          "matched_tokens": [
+            "austen",
+            "jane"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "austen",
+            "jane"
+          ],
+          "matched_tokens": [
+            "austen",
+            "jane"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": false,
+          "faithful": true,
+          "unsupported_claims": []
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "fqa_02",
+        "score": 5,
+        "rationale": "Correct author; extra publication year is accurate and not penalized.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "fqa_03",
+      "category": "factual_qa",
+      "difficulty": "medium",
+      "prompt": "What year did the Berlin Wall fall?",
+      "model_output": "The Berlin Wall fell in 1991.",
+      "rubric": {
+        "correctness": {
+          "score": 0.0,
+          "ref_tokens": [
+            "1989"
+          ],
+          "matched_tokens": []
+        },
+        "completeness": {
+          "score": 0.0,
+          "ref_tokens": [
+            "1989"
+          ],
+          "matched_tokens": [],
+          "complete": false,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": false,
+          "faithful": true,
+          "unsupported_claims": []
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": false
+      },
+      "judge": {
+        "example_id": "fqa_03",
+        "score": 1,
+        "rationale": "Wrong year (1991) \u2014 reference is 1989.",
+        "mode": "replay"
+      },
+      "rubric_pass": false,
+      "judge_pass": false,
+      "overall_pass": false
+    },
+    {
+      "id": "fqa_04",
+      "category": "factual_qa",
+      "difficulty": "medium",
+      "prompt": "What is the chemical symbol for tungsten?",
+      "model_output": "The chemical symbol for tungsten is Tu.",
+      "rubric": {
+        "correctness": {
+          "score": 0.0,
+          "ref_tokens": [
+            "w"
+          ],
+          "matched_tokens": []
+        },
+        "completeness": {
+          "score": 0.0,
+          "ref_tokens": [
+            "w"
+          ],
+          "matched_tokens": [],
+          "complete": false,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": false,
+          "faithful": true,
+          "unsupported_claims": []
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": false
+      },
+      "judge": {
+        "example_id": "fqa_04",
+        "score": 1,
+        "rationale": "Wrong symbol (Tu) \u2014 tungsten's symbol is W.",
+        "mode": "replay"
+      },
+      "rubric_pass": false,
+      "judge_pass": false,
+      "overall_pass": false
+    },
+    {
+      "id": "cgq_01",
+      "category": "context_grounded_qa",
+      "difficulty": "easy",
+      "prompt": "According to the passage, what is the company's refund window?",
+      "model_output": "According to the passage, the refund window is 30 days.",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "30",
+            "days"
+          ],
+          "matched_tokens": [
+            "30",
+            "days"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "30",
+            "days"
+          ],
+          "matched_tokens": [
+            "30",
+            "days"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "cgq_01",
+        "score": 5,
+        "rationale": "Correctly reports the 30-day window stated in context.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "cgq_02",
+      "category": "context_grounded_qa",
+      "difficulty": "medium",
+      "prompt": "Per the passage, how long do refunds take to process once approved?",
+      "model_output": "Refunds are processed within 5-7 business days once approved.",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "5",
+            "7",
+            "business",
+            "days"
+          ],
+          "matched_tokens": [
+            "5",
+            "7",
+            "business",
+            "days"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "5",
+            "7",
+            "business",
+            "days"
+          ],
+          "matched_tokens": [
+            "5",
+            "7",
+            "business",
+            "days"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "cgq_02",
+        "score": 5,
+        "rationale": "Correctly reports the 5-7 business day processing time.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "cgq_03",
+      "category": "context_grounded_qa",
+      "difficulty": "medium",
+      "prompt": "Based on the passage, what was Q3 revenue?",
+      "model_output": "Q3 revenue was $42.3 million.",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "3",
+            "42",
+            "million"
+          ],
+          "matched_tokens": [
+            "3",
+            "42",
+            "million"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "3",
+            "42",
+            "million"
+          ],
+          "matched_tokens": [
+            "3",
+            "42",
+            "million"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "cgq_03",
+        "score": 5,
+        "rationale": "Correctly reports Q3 revenue of $42.3 million.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "cgq_04",
+      "category": "context_grounded_qa",
+      "difficulty": "hard",
+      "prompt": "Per the passage, what drove the Q3 revenue growth?",
+      "model_output": "Growth was mainly driven by the consumer segment expanding overseas.",
+      "rubric": {
+        "correctness": {
+          "score": 0.667,
+          "ref_tokens": [
+            "enterprise",
+            "growth",
+            "segment"
+          ],
+          "matched_tokens": [
+            "growth",
+            "segment"
+          ]
+        },
+        "completeness": {
+          "score": 0.667,
+          "ref_tokens": [
+            "enterprise",
+            "growth",
+            "segment"
+          ],
+          "matched_tokens": [
+            "growth",
+            "segment"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "cgq_04",
+        "score": 1,
+        "rationale": "Attributes growth to the consumer segment; context says enterprise segment.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": false,
+      "overall_pass": false
+    },
+    {
+      "id": "hal_01",
+      "category": "hallucination_trap",
+      "difficulty": "hard",
+      "prompt": "According to the passage, who is the company's CEO?",
+      "model_output": "The passage doesn't mention who the CEO is.",
+      "rubric": {
+        "correctness": {
+          "score": 0.5,
+          "ref_tokens": [],
+          "matched_tokens": []
+        },
+        "completeness": {
+          "score": 0.5,
+          "ref_tokens": [],
+          "matched_tokens": [],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": true
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "hal_01",
+        "score": 5,
+        "rationale": "Correctly declines since the CEO isn't named in the passage.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "hal_02",
+      "category": "hallucination_trap",
+      "difficulty": "hard",
+      "prompt": "Per the passage, what was Q3 net income?",
+      "model_output": "Q3 net income was $8.1 million.",
+      "rubric": {
+        "correctness": {
+          "score": 0.5,
+          "ref_tokens": [],
+          "matched_tokens": []
+        },
+        "completeness": {
+          "score": 0.5,
+          "ref_tokens": [],
+          "matched_tokens": [],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": false,
+          "unsupported_claims": [
+            "$8.1"
+          ],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": false
+      },
+      "judge": {
+        "example_id": "hal_02",
+        "score": 1,
+        "rationale": "Invents a specific net income figure not present in the context.",
+        "mode": "replay"
+      },
+      "rubric_pass": false,
+      "judge_pass": false,
+      "overall_pass": false
+    },
+    {
+      "id": "hal_03",
+      "category": "hallucination_trap",
+      "difficulty": "hard",
+      "prompt": "Based on the passage, how many employees does the company have?",
+      "model_output": "The passage does not state the number of employees.",
+      "rubric": {
+        "correctness": {
+          "score": 0.5,
+          "ref_tokens": [],
+          "matched_tokens": []
+        },
+        "completeness": {
+          "score": 0.5,
+          "ref_tokens": [],
+          "matched_tokens": [],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": true
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "hal_03",
+        "score": 5,
+        "rationale": "Correctly declines since employee count isn't in the passage.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "hal_04",
+      "category": "hallucination_trap",
+      "difficulty": "hard",
+      "prompt": "According to the passage, what is the phone number for customer support?",
+      "model_output": "You can reach customer support at 1-800-555-0199.",
+      "rubric": {
+        "correctness": {
+          "score": 0.5,
+          "ref_tokens": [],
+          "matched_tokens": []
+        },
+        "completeness": {
+          "score": 0.5,
+          "ref_tokens": [],
+          "matched_tokens": [],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": false,
+          "unsupported_claims": [
+            "0199.",
+            "555",
+            "800",
+            "1"
+          ],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": false
+      },
+      "judge": {
+        "example_id": "hal_04",
+        "score": 1,
+        "rationale": "Invents a phone number not present in the context.",
+        "mode": "replay"
+      },
+      "rubric_pass": false,
+      "judge_pass": false,
+      "overall_pass": false
+    },
+    {
+      "id": "sum_01",
+      "category": "summarization",
+      "difficulty": "medium",
+      "prompt": "Summarize the passage in one sentence.",
+      "model_output": "The city council approved a $1.2 billion light-rail extension from downtown to the airport, with construction starting in 2027 and taking about three years, despite cost concerns.",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "1",
+            "2",
+            "2027",
+            "about",
+            "airport",
+            "approved",
+            "billion",
+            "city",
+            "concerns",
+            "construction",
+            "cost",
+            "council",
+            "despite",
+            "downtown",
+            "extension",
+            "from",
+            "light",
+            "rail",
+            "starting",
+            "taking",
+            "three",
+            "years"
+          ],
+          "matched_tokens": [
+            "1",
+            "2",
+            "2027",
+            "about",
+            "airport",
+            "approved",
+            "billion",
+            "city",
+            "concerns",
+            "construction",
+            "cost",
+            "council",
+            "despite",
+            "downtown",
+            "extension",
+            "from",
+            "light",
+            "rail",
+            "starting",
+            "taking",
+            "three",
+            "years"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "1",
+            "2",
+            "2027",
+            "about",
+            "airport",
+            "approved",
+            "billion",
+            "city",
+            "concerns",
+            "construction",
+            "cost",
+            "council",
+            "despite",
+            "downtown",
+            "extension",
+            "from",
+            "light",
+            "rail",
+            "starting",
+            "taking",
+            "three",
+            "years"
+          ],
+          "matched_tokens": [
+            "1",
+            "2",
+            "2027",
+            "about",
+            "airport",
+            "approved",
+            "billion",
+            "city",
+            "concerns",
+            "construction",
+            "cost",
+            "council",
+            "despite",
+            "downtown",
+            "extension",
+            "from",
+            "light",
+            "rail",
+            "starting",
+            "taking",
+            "three",
+            "years"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "sum_01",
+        "score": 5,
+        "rationale": "Captures cost, timeline, and vote outcome faithfully and completely.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "sum_02",
+      "category": "summarization",
+      "difficulty": "medium",
+      "prompt": "Summarize the passage in one sentence.",
+      "model_output": "A university lab created a battery that lasts about twice as long as typical EV batteries, but it's still five years from commercial production.",
+      "rubric": {
+        "correctness": {
+          "score": 0.478,
+          "ref_tokens": [
+            "about",
+            "battery",
+            "cells",
+            "chemistry",
+            "commercial",
+            "cycle",
+            "developed",
+            "double",
+            "ev",
+            "five",
+            "ion",
+            "lab",
+            "life",
+            "lithium",
+            "new",
+            "out",
+            "production",
+            "roughly",
+            "still",
+            "though",
+            "typical",
+            "university",
+            "years"
+          ],
+          "matched_tokens": [
+            "about",
+            "battery",
+            "commercial",
+            "ev",
+            "five",
+            "lab",
+            "production",
+            "still",
+            "typical",
+            "university",
+            "years"
+          ]
+        },
+        "completeness": {
+          "score": 0.478,
+          "ref_tokens": [
+            "about",
+            "battery",
+            "cells",
+            "chemistry",
+            "commercial",
+            "cycle",
+            "developed",
+            "double",
+            "ev",
+            "five",
+            "ion",
+            "lab",
+            "life",
+            "lithium",
+            "new",
+            "out",
+            "production",
+            "roughly",
+            "still",
+            "though",
+            "typical",
+            "university",
+            "years"
+          ],
+          "matched_tokens": [
+            "about",
+            "battery",
+            "commercial",
+            "ev",
+            "five",
+            "lab",
+            "production",
+            "still",
+            "typical",
+            "university",
+            "years"
+          ],
+          "complete": false,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": false
+      },
+      "judge": {
+        "example_id": "sum_02",
+        "score": 4,
+        "rationale": "Faithful and complete, slightly looser phrasing than the reference.",
+        "mode": "replay"
+      },
+      "rubric_pass": false,
+      "judge_pass": true,
+      "overall_pass": false
+    },
+    {
+      "id": "sum_03",
+      "category": "summarization",
+      "difficulty": "hard",
+      "prompt": "Summarize the passage in one sentence.",
+      "model_output": "Cloud revenue grew 22% and beat estimates.",
+      "rubric": {
+        "correctness": {
+          "score": 0.316,
+          "ref_tokens": [
+            "22",
+            "400",
+            "beat",
+            "cloud",
+            "cutting",
+            "division",
+            "estimates",
+            "grew",
+            "hardware",
+            "jobs",
+            "led",
+            "loss",
+            "plan",
+            "quarterly",
+            "restructuring",
+            "revenue",
+            "s",
+            "straight",
+            "third"
+          ],
+          "matched_tokens": [
+            "22",
+            "beat",
+            "cloud",
+            "estimates",
+            "grew",
+            "revenue"
+          ]
+        },
+        "completeness": {
+          "score": 0.316,
+          "ref_tokens": [
+            "22",
+            "400",
+            "beat",
+            "cloud",
+            "cutting",
+            "division",
+            "estimates",
+            "grew",
+            "hardware",
+            "jobs",
+            "led",
+            "loss",
+            "plan",
+            "quarterly",
+            "restructuring",
+            "revenue",
+            "s",
+            "straight",
+            "third"
+          ],
+          "matched_tokens": [
+            "22",
+            "beat",
+            "cloud",
+            "estimates",
+            "grew",
+            "revenue"
+          ],
+          "complete": false,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": false
+      },
+      "judge": {
+        "example_id": "sum_03",
+        "score": 2,
+        "rationale": "Drops the hardware-division loss and layoffs, a material omission.",
+        "mode": "replay"
+      },
+      "rubric_pass": false,
+      "judge_pass": false,
+      "overall_pass": false
+    },
+    {
+      "id": "sum_04",
+      "category": "summarization",
+      "difficulty": "hard",
+      "prompt": "Summarize the passage in one sentence.",
+      "model_output": "A new irrigation system cut water use by 34% across 120 farms with no yield loss, though cost is a barrier to adoption.",
+      "rubric": {
+        "correctness": {
+          "score": 0.727,
+          "ref_tokens": [
+            "120",
+            "34",
+            "across",
+            "adoption",
+            "barrier",
+            "cost",
+            "cut",
+            "farms",
+            "field",
+            "found",
+            "installation",
+            "irrigation",
+            "loss",
+            "new",
+            "no",
+            "remains",
+            "system",
+            "though",
+            "trial",
+            "usage",
+            "water",
+            "yield"
+          ],
+          "matched_tokens": [
+            "120",
+            "34",
+            "across",
+            "adoption",
+            "barrier",
+            "cost",
+            "cut",
+            "farms",
+            "irrigation",
+            "loss",
+            "new",
+            "no",
+            "system",
+            "though",
+            "water",
+            "yield"
+          ]
+        },
+        "completeness": {
+          "score": 0.727,
+          "ref_tokens": [
+            "120",
+            "34",
+            "across",
+            "adoption",
+            "barrier",
+            "cost",
+            "cut",
+            "farms",
+            "field",
+            "found",
+            "installation",
+            "irrigation",
+            "loss",
+            "new",
+            "no",
+            "remains",
+            "system",
+            "though",
+            "trial",
+            "usage",
+            "water",
+            "yield"
+          ],
+          "matched_tokens": [
+            "120",
+            "34",
+            "across",
+            "adoption",
+            "barrier",
+            "cost",
+            "cut",
+            "farms",
+            "irrigation",
+            "loss",
+            "new",
+            "no",
+            "system",
+            "though",
+            "water",
+            "yield"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "sum_04",
+        "score": 5,
+        "rationale": "Captures water savings, farm count, yield, and adoption barrier.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "ext_01",
+      "category": "structured_extraction",
+      "difficulty": "medium",
+      "prompt": "Extract the contact info as JSON with keys name, email, phone.",
+      "model_output": "{\"name\": \"Priya Nair\", \"email\": \"priya.nair@example.com\", \"phone\": \"555-0142\"}",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "0142",
+            "555",
+            "com",
+            "email",
+            "example",
+            "nair",
+            "name",
+            "phone",
+            "priya"
+          ],
+          "matched_tokens": [
+            "0142",
+            "555",
+            "com",
+            "email",
+            "example",
+            "nair",
+            "name",
+            "phone",
+            "priya"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "0142",
+            "555",
+            "com",
+            "email",
+            "example",
+            "nair",
+            "name",
+            "phone",
+            "priya"
+          ],
+          "matched_tokens": [
+            "0142",
+            "555",
+            "com",
+            "email",
+            "example",
+            "nair",
+            "name",
+            "phone",
+            "priya"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": true,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "ext_01",
+        "score": 5,
+        "rationale": "Valid JSON, all fields correctly extracted.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "ext_02",
+      "category": "structured_extraction",
+      "difficulty": "medium",
+      "prompt": "Extract the contact info as JSON with keys name, email, phone.",
+      "model_output": "{\"name\": \"Devon Wright\", \"email\": \"devon.w@example.com\", \"phone\": null}",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "com",
+            "devon",
+            "email",
+            "example",
+            "name",
+            "null",
+            "phone",
+            "w",
+            "wright"
+          ],
+          "matched_tokens": [
+            "com",
+            "devon",
+            "email",
+            "example",
+            "name",
+            "null",
+            "phone",
+            "w",
+            "wright"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "com",
+            "devon",
+            "email",
+            "example",
+            "name",
+            "null",
+            "phone",
+            "w",
+            "wright"
+          ],
+          "matched_tokens": [
+            "com",
+            "devon",
+            "email",
+            "example",
+            "name",
+            "null",
+            "phone",
+            "w",
+            "wright"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": true,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "ext_02",
+        "score": 5,
+        "rationale": "Valid JSON, correctly extracts null phone when absent.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "ext_03",
+      "category": "structured_extraction",
+      "difficulty": "hard",
+      "prompt": "Extract the order as JSON with keys order_id, total, items.",
+      "model_output": "{\"order_id\": \"A1092\", \"total\": \"58.40\", items: [water bottle, yoga mat]}",
+      "rubric": {
+        "correctness": {
+          "score": 0.909,
+          "ref_tokens": [
+            "4",
+            "58",
+            "a1092",
+            "bottle",
+            "id",
+            "items",
+            "mat",
+            "order",
+            "total",
+            "water",
+            "yoga"
+          ],
+          "matched_tokens": [
+            "58",
+            "a1092",
+            "bottle",
+            "id",
+            "items",
+            "mat",
+            "order",
+            "total",
+            "water",
+            "yoga"
+          ]
+        },
+        "completeness": {
+          "score": 0.909,
+          "ref_tokens": [
+            "4",
+            "58",
+            "a1092",
+            "bottle",
+            "id",
+            "items",
+            "mat",
+            "order",
+            "total",
+            "water",
+            "yoga"
+          ],
+          "matched_tokens": [
+            "58",
+            "a1092",
+            "bottle",
+            "id",
+            "items",
+            "mat",
+            "order",
+            "total",
+            "water",
+            "yoga"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": true,
+          "valid": false,
+          "error": "invalid JSON: Expecting property name enclosed in double quotes: line 1 column 41 (char 40)"
+        },
+        "rubric_pass": false
+      },
+      "judge": {
+        "example_id": "ext_03",
+        "score": 1,
+        "rationale": "Output is not valid JSON (unquoted keys/values, string total).",
+        "mode": "replay"
+      },
+      "rubric_pass": false,
+      "judge_pass": false,
+      "overall_pass": false
+    },
+    {
+      "id": "ext_04",
+      "category": "structured_extraction",
+      "difficulty": "hard",
+      "prompt": "Extract the order as JSON with keys order_id, total, items.",
+      "model_output": "{\"order_id\": \"B7734\", \"total\": 34.99, \"items\": [\"desk lamp\", \"notebook\", \"pen set\"]}",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "34",
+            "99",
+            "b7734",
+            "desk",
+            "id",
+            "items",
+            "lamp",
+            "notebook",
+            "order",
+            "pen",
+            "set",
+            "total"
+          ],
+          "matched_tokens": [
+            "34",
+            "99",
+            "b7734",
+            "desk",
+            "id",
+            "items",
+            "lamp",
+            "notebook",
+            "order",
+            "pen",
+            "set",
+            "total"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "34",
+            "99",
+            "b7734",
+            "desk",
+            "id",
+            "items",
+            "lamp",
+            "notebook",
+            "order",
+            "pen",
+            "set",
+            "total"
+          ],
+          "matched_tokens": [
+            "34",
+            "99",
+            "b7734",
+            "desk",
+            "id",
+            "items",
+            "lamp",
+            "notebook",
+            "order",
+            "pen",
+            "set",
+            "total"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": true,
+          "faithful": true,
+          "unsupported_claims": [],
+          "declined_to_answer": false
+        },
+        "schema": {
+          "applicable": true,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "ext_04",
+        "score": 5,
+        "rationale": "Valid JSON, all fields correctly extracted.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "math_01",
+      "category": "reasoning_math",
+      "difficulty": "easy",
+      "prompt": "A train travels 60 miles in 1.5 hours. What is its average speed in mph?",
+      "model_output": "40 mph",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "40",
+            "mph"
+          ],
+          "matched_tokens": [
+            "40",
+            "mph"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "40",
+            "mph"
+          ],
+          "matched_tokens": [
+            "40",
+            "mph"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": false,
+          "faithful": true,
+          "unsupported_claims": []
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "math_01",
+        "score": 5,
+        "rationale": "Correct: 60 / 1.5 = 40 mph.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "math_02",
+      "category": "reasoning_math",
+      "difficulty": "medium",
+      "prompt": "If a shirt costs $40 and is discounted 25%, then a further 10% off the discounted price, what is the final price?",
+      "model_output": "$28",
+      "rubric": {
+        "correctness": {
+          "score": 0.0,
+          "ref_tokens": [
+            "27"
+          ],
+          "matched_tokens": []
+        },
+        "completeness": {
+          "score": 0.0,
+          "ref_tokens": [
+            "27"
+          ],
+          "matched_tokens": [],
+          "complete": false,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": false,
+          "faithful": true,
+          "unsupported_claims": []
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": false
+      },
+      "judge": {
+        "example_id": "math_02",
+        "score": 1,
+        "rationale": "Incorrect arithmetic \u2014 correct final price is $27, not $28.",
+        "mode": "replay"
+      },
+      "rubric_pass": false,
+      "judge_pass": false,
+      "overall_pass": false
+    },
+    {
+      "id": "math_03",
+      "category": "reasoning_math",
+      "difficulty": "medium",
+      "prompt": "A team of 6 people can finish a task in 8 days. How many days would it take a team of 4 people, working at the same rate, to finish the same task?",
+      "model_output": "12 days",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "12",
+            "days"
+          ],
+          "matched_tokens": [
+            "12",
+            "days"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "12",
+            "days"
+          ],
+          "matched_tokens": [
+            "12",
+            "days"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": false,
+          "faithful": true,
+          "unsupported_claims": []
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "math_03",
+        "score": 5,
+        "rationale": "Correct inverse-proportion result: 12 days.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    },
+    {
+      "id": "math_04",
+      "category": "reasoning_math",
+      "difficulty": "hard",
+      "prompt": "Sarah is twice as old as Tom. In 5 years, she will be 1.5 times as old as Tom. How old is Tom now?",
+      "model_output": "Tom is 10 years old.",
+      "rubric": {
+        "correctness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "10",
+            "old",
+            "years"
+          ],
+          "matched_tokens": [
+            "10",
+            "old",
+            "years"
+          ]
+        },
+        "completeness": {
+          "score": 1.0,
+          "ref_tokens": [
+            "10",
+            "old",
+            "years"
+          ],
+          "matched_tokens": [
+            "10",
+            "old",
+            "years"
+          ],
+          "complete": true,
+          "threshold": 0.5
+        },
+        "faithfulness": {
+          "applicable": false,
+          "faithful": true,
+          "unsupported_claims": []
+        },
+        "schema": {
+          "applicable": false,
+          "valid": true,
+          "error": null
+        },
+        "rubric_pass": true
+      },
+      "judge": {
+        "example_id": "math_04",
+        "score": 5,
+        "rationale": "Correct: Tom is 10, Sarah is 20, matches the constraint at +5 years.",
+        "mode": "replay"
+      },
+      "rubric_pass": true,
+      "judge_pass": true,
+      "overall_pass": true
+    }
+  ]
+}

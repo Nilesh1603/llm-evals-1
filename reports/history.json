@@ -1,0 +1,106 @@
+[
+  {
+    "run_id": "20260828T091500Z",
+    "timestamp": "2026-08-28T09:15:00+00:00",
+    "git_sha": "a1b2c3d4",
+    "total": 24,
+    "passed": 13,
+    "pass_rate": 0.542,
+    "failed_ids": [
+      "fqa_02",
+      "fqa_03",
+      "fqa_04",
+      "cgq_04",
+      "hal_02",
+      "hal_04",
+      "sum_02",
+      "sum_03",
+      "ext_01",
+      "ext_03",
+      "math_02"
+    ],
+    "category_breakdown": {
+      "context_grounded_qa": {
+        "total": 4,
+        "passed": 3,
+        "pass_rate": 0.75
+      },
+      "factual_qa": {
+        "total": 4,
+        "passed": 1,
+        "pass_rate": 0.25
+      },
+      "hallucination_trap": {
+        "total": 4,
+        "passed": 2,
+        "pass_rate": 0.5
+      },
+      "reasoning_math": {
+        "total": 4,
+        "passed": 3,
+        "pass_rate": 0.75
+      },
+      "structured_extraction": {
+        "total": 4,
+        "passed": 2,
+        "pass_rate": 0.5
+      },
+      "summarization": {
+        "total": 4,
+        "passed": 2,
+        "pass_rate": 0.5
+      }
+    }
+  },
+  {
+    "run_id": "20260830T142200Z",
+    "timestamp": "2026-08-30T14:22:00+00:00",
+    "git_sha": "e5f6a7b8",
+    "total": 24,
+    "passed": 15,
+    "pass_rate": 0.625,
+    "failed_ids": [
+      "fqa_03",
+      "fqa_04",
+      "cgq_04",
+      "hal_02",
+      "hal_04",
+      "sum_02",
+      "sum_03",
+      "ext_03",
+      "math_02"
+    ],
+    "category_breakdown": {
+      "context_grounded_qa": {
+        "total": 4,
+        "passed": 3,
+        "pass_rate": 0.75
+      },
+      "factual_qa": {
+        "total": 4,
+        "passed": 2,
+        "pass_rate": 0.5
+      },
+      "hallucination_trap": {
+        "total": 4,
+        "passed": 2,
+        "pass_rate": 0.5
+      },
+      "reasoning_math": {
+        "total": 4,
+        "passed": 3,
+        "pass_rate": 0.75
+      },
+      "structured_extraction": {
+        "total": 4,
+        "passed": 3,
+        "pass_rate": 0.75
+      },
+      "summarization": {
+        "total": 4,
+        "passed": 2,
+        "pass_rate": 0.5
+      }
+    }
+  }
+]

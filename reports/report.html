@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Eval Report — 20260902T195107Z</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 860px;
+         margin: 40px auto; color: #1f2328; background: #fff; }
+  h1 { font-size: 1.4rem; }
+  .gate { display:inline-block; padding: 4px 12px; border-radius: 6px; color: #fff;
+          background: #1a7f37; font-weight: 600; font-size: 0.85rem; }
+  .stat { display:inline-block; margin-right: 28px; }
+  .stat .num { font-size: 1.6rem; font-weight: 700; }
+  .stat .label { font-size: 0.8rem; color: #57606a; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 28px; }
+  th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid #d0d7de;
+           font-size: 0.9rem; }
+  th { background: #f6f8fa; }
+  .trend { display:flex; align-items:flex-end; gap:6px; height:100px; margin: 12px 0 28px; }
+  .bar { width: 18px; background: #2da44e; border-radius: 2px 2px 0 0; }
+</style>
+</head>
+<body>
+  <h1>Eval Run Report — 20260902T195107Z <span class="gate">QUALITY GATE: PASSED</span></h1>
+  <p style="color:#57606a">Commit <code>local</code> · 2026-09-02T19:51:07.004122+00:00</p>
+
+  <div>
+    <div class="stat"><div class="num">15/24</div><div class="label">Passed</div></div>
+    <div class="stat"><div class="num">62.5%</div><div class="label">Pass rate</div></div>
+    <div class="stat"><div class="num">0</div><div class="label">New regressions</div></div>
+  </div>
+
+  <h2>Pass-rate trend</h2>
+  <div class="trend"><div class="bar" style="height:54.2px" title="20260828T091500Z: 54.2%"></div><div class="bar" style="height:62.5px" title="20260830T142200Z: 62.5%"></div><div class="bar" style="height:62.5px" title="20260902T195107Z: 62.5%"></div></div>
+
+  <h2>Category breakdown</h2>
+  <table><tr><th>Category</th><th>Passed</th><th>Pass rate</th></tr><tr><td>context_grounded_qa</td><td>3/4</td><td>75.0%</td></tr><tr><td>factual_qa</td><td>2/4</td><td>50.0%</td></tr><tr><td>hallucination_trap</td><td>2/4</td><td>50.0%</td></tr><tr><td>reasoning_math</td><td>3/4</td><td>75.0%</td></tr><tr><td>structured_extraction</td><td>3/4</td><td>75.0%</td></tr><tr><td>summarization</td><td>2/4</td><td>50.0%</td></tr></table>
+
+  <h2>Failing examples</h2><table><tr><th>ID</th><th>Category</th><th>Rubric</th><th>Judge score</th><th>Judge rationale</th></tr><tr><td>fqa_03</td><td>factual_qa</td><td>❌</td><td>1/5</td><td>Wrong year (1991) — reference is 1989.</td></tr><tr><td>fqa_04</td><td>factual_qa</td><td>❌</td><td>1/5</td><td>Wrong symbol (Tu) — tungsten's symbol is W.</td></tr><tr><td>cgq_04</td><td>context_grounded_qa</td><td>✅</td><td>1/5</td><td>Attributes growth to the consumer segment; context says enterprise segment.</td></tr><tr><td>hal_02</td><td>hallucination_trap</td><td>❌</td><td>1/5</td><td>Invents a specific net income figure not present in the context.</td></tr><tr><td>hal_04</td><td>hallucination_trap</td><td>❌</td><td>1/5</td><td>Invents a phone number not present in the context.</td></tr><tr><td>sum_02</td><td>summarization</td><td>❌</td><td>4/5</td><td>Faithful and complete, slightly looser phrasing than the reference.</td></tr><tr><td>sum_03</td><td>summarization</td><td>❌</td><td>2/5</td><td>Drops the hardware-division loss and layoffs, a material omission.</td></tr><tr><td>ext_03</td><td>structured_extraction</td><td>❌</td><td>1/5</td><td>Output is not valid JSON (unquoted keys/values, string total).</td></tr><tr><td>math_02</td><td>reasoning_math</td><td>❌</td><td>1/5</td><td>Incorrect arithmetic — correct final price is $27, not $28.</td></tr></table>
+</body>
+</html>

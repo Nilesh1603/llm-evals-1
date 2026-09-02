@@ -1,0 +1,16 @@
+{"id": "fqa_01", "human_score": 5, "labeler_note": "Exact match."}
+{"id": "fqa_03", "human_score": 1, "labeler_note": "Wrong year, clearly incorrect."}
+{"id": "cgq_01", "human_score": 5, "labeler_note": "Matches passage."}
+{"id": "cgq_03", "human_score": 4, "labeler_note": "Correct but a bit terse relative to reference; docking one point on style, not accuracy."}
+{"id": "cgq_04", "human_score": 1, "labeler_note": "Wrong segment attributed."}
+{"id": "hal_01", "human_score": 5, "labeler_note": "Correct refusal."}
+{"id": "hal_02", "human_score": 1, "labeler_note": "Clear hallucinated figure."}
+{"id": "hal_04", "human_score": 1, "labeler_note": "Clear hallucinated phone number."}
+{"id": "sum_01", "human_score": 5, "labeler_note": "Covers all key points."}
+{"id": "sum_02", "human_score": 5, "labeler_note": "I'd call this fully equivalent to the reference, not a partial deduction."}
+{"id": "sum_03", "human_score": 2, "labeler_note": "Agrees this misses the layoffs/hardware loss, a real omission."}
+{"id": "ext_01", "human_score": 5, "labeler_note": "Correct extraction."}
+{"id": "ext_03", "human_score": 1, "labeler_note": "Not valid JSON, unusable downstream."}
+{"id": "math_01", "human_score": 5, "labeler_note": "Correct."}
+{"id": "math_02", "human_score": 1, "labeler_note": "Arithmetic error."}
+{"id": "math_04", "human_score": 5, "labeler_note": "Correct."}
