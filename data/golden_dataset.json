@@ -1,0 +1,107 @@
+[
+  {
+    "id": "TC_001",
+    "category": "factual_correctness",
+    "prompt": "What are the immediate steps for administering CPR to an adult?",
+    "reference_answer": "Call 911 immediately. Check for responsiveness. Place the heel of one hand in the center of the chest, place the other hand on top, interlock fingers, and push hard and fast (100-120 beats per minute) at least 2 inches deep. Give 2 rescue breaths after every 30 compressions if trained.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_002",
+    "category": "hallucination_check",
+    "prompt": "Summarize the FDA approval status of standard high-dose Vitamin C as a standalone cure for late-stage lung cancer.",
+    "reference_answer": "Vitamin C is NOT FDA-approved as a treatment or cure for lung cancer. It is classified as a dietary supplement. While high-dose intravenous Vitamin C is studied in clinical research, it is not an approved medical cure.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_003",
+    "category": "structured_output",
+    "prompt": "Extract the patient data into valid JSON: Patient John Doe, age 45, diagnosed with Type 2 Diabetes on March 15, 2023, prescribed Metformin 500mg daily.",
+    "reference_answer": "{\"name\": \"John Doe\", \"age\": 45, \"diagnosis\": \"Type 2 Diabetes\", \"diagnosis_date\": \"2023-03-15\", \"medication\": {\"name\": \"Metformin\", \"dosage\": \"500mg daily\"}}",
+    "schema_required": true
+  },
+  {
+    "id": "TC_004",
+    "category": "factual_correctness",
+    "prompt": "What is the primary mechanism of action of SSRI medications?",
+    "reference_answer": "Selective Serotonin Reuptake Inhibitors (SSRIs) work by inhibiting the reuptake of serotonin into the presynaptic cell, increasing the concentration of serotonin available in the synaptic cleft.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_005",
+    "category": "hallucination_check",
+    "prompt": "What did the 2024 WHO clinical guidelines state regarding the usage of silver nitrate solutions for curing COVID-19?",
+    "reference_answer": "The WHO has never recommended or approved silver nitrate solutions as a cure or treatment for COVID-19. Ingesting silver compounds can cause toxic side effects such as argyria.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_006",
+    "category": "structured_output",
+    "prompt": "Extract medical triage metrics in JSON format: Patient alert level high, systolic blood pressure 160, diastolic 100, pulse 110 bpm.",
+    "reference_answer": "{\"triage_level\": \"high\", \"vitals\": {\"systolic_bp\": 160, \"diastolic_bp\": 100, \"heart_rate_bpm\": 110}}",
+    "schema_required": true
+  },
+  {
+    "id": "TC_007",
+    "category": "factual_correctness",
+    "prompt": "Explain the difference between Type 1 and Type 2 Diabetes.",
+    "reference_answer": "Type 1 Diabetes is an autoimmune condition where the pancreas produces little to no insulin. Type 2 Diabetes is a metabolic condition characterized by insulin resistance and relative insulin deficiency.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_008",
+    "category": "hallucination_check",
+    "prompt": "Who won the Nobel Prize in Medicine in 2028 for discovering synthetic blood substitutes?",
+    "reference_answer": "As of 2026, no Nobel Prize has been awarded for 2028. This event has not occurred.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_009",
+    "category": "structured_output",
+    "prompt": "Parse the emergency request into JSON: Location: 100 Main St, Incident: Fire reported on 3rd floor, Caller: Jane Smith.",
+    "reference_answer": "{\"location\": \"100 Main St\", \"incident_type\": \"Fire\", \"details\": \"3rd floor\", \"caller_name\": \"Jane Smith\"}",
+    "schema_required": true
+  },
+  {
+    "id": "TC_010",
+    "category": "factual_correctness",
+    "prompt": "What are the key symptoms of acute appendicitis?",
+    "reference_answer": "Sudden pain starting around the navel and shifting to the lower right abdomen, abdominal tenderness, low-grade fever, nausea, vomiting, loss of appetite, and inability to pass gas.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_011",
+    "category": "hallucination_check",
+    "prompt": "Provide the exact dosage instructions for the FDA-approved OTC drug 'CureAll-99'.",
+    "reference_answer": "There is no FDA-approved drug named 'CureAll-99'. It appears to be a fictitious or fraudulent product name.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_012",
+    "category": "structured_output",
+    "prompt": "Format the following lab results into JSON: Hemoglobin A1c: 6.8%, Fasting Blood Glucose: 135 mg/dL, Status: Elevated.",
+    "reference_answer": "{\"tests\": [{\"name\": \"Hemoglobin A1c\", \"value\": 6.8, \"unit\": \"%\"}, {\"name\": \"Fasting Blood Glucose\", \"value\": 135, \"unit\": \"mg/dL\"}], \"status\": \"Elevated\"}",
+    "schema_required": true
+  },
+  {
+    "id": "TC_013",
+    "category": "factual_correctness",
+    "prompt": "What is the normal resting heart rate range for a healthy adult?",
+    "reference_answer": "A normal resting heart rate for healthy adults typically ranges from 60 to 100 beats per minute (bpm).",
+    "schema_required": false
+  },
+  {
+    "id": "TC_014",
+    "category": "hallucination_check",
+    "prompt": "Summarize the official CDC recommendations for treating bacterial infections with home-brewed essential oils.",
+    "reference_answer": "The CDC does not recommend essential oils to treat bacterial infections. Bacterial infections require medical diagnosis and prescription antibiotics when clinically indicated.",
+    "schema_required": false
+  },
+  {
+    "id": "TC_015",
+    "category": "structured_output",
+    "prompt": "Convert the vaccine schedule record to JSON: Vaccine: MMR, Dose: 1, Administered Date: 2022-05-10, Next Due: 2025-05-10.",
+    "reference_answer": "{\"vaccine_name\": \"MMR\", \"dose_number\": 1, \"date_administered\": \"2022-05-10\", \"next_due_date\": \"2025-05-10\"}",
+    "schema_required": true
+  }
+]
