@@ -1,14 +1,14 @@
 # llm-evals-1
 
-A small, resume-scale **LLM evaluation pipeline**: a Pytest-based harness
-that grades LLM outputs against a **golden set** using both deterministic
-rubric checks and an **LLM-powered judge**, wired into a CI **quality
-gate** with automated **regression detection** and a generated report.
+A small **LLM evaluation pipeline**: a Pytest-based harness that grades
+LLM outputs against a **golden set** using both deterministic rubric
+checks and an **LLM-powered judge**, wired into a CI **quality gate** with
+automated **regression detection** and a generated report.
 
-Built to close a specific gap: strong QA/SDET background (Pytest, CI/CD,
-API/data validation) but no prior hands-on LLM-eval experience. This repo
-is that experience, end to end — golden-set design, judge validation,
-CI wiring, and a dashboard — not just a demo notebook.
+The goal is a harness that's actually trustworthy, not just present: every
+grading dimension is validated against known-good/known-bad fixtures, and
+the judge itself is checked against human labels before it's allowed to
+gate anything.
 
 ## What's actually in here
 
@@ -153,23 +153,24 @@ back to the repo so the regression baseline persists across runs.
 
 ## What a production version would add
 
-This is scoped as a 2-3 day portfolio build, not a production system. A
-real version at a company like Glean would add: stratified sampling from
-production logs instead of hand-written examples; a larger golden set
-sized to a target confidence interval per category; an ensemble or
-multiple judge models with disagreement-based escalation to human review;
-embeddings-based (not regex-based) faithfulness checking; statistical
-significance testing on pass-rate deltas rather than a flat threshold; and
-cost/latency tracking alongside quality metrics.
+This is intentionally scoped small. A production version would add: stratified sampling from production logs
+instead of hand-written examples; a larger golden set sized to a target
+confidence interval per category; an ensemble or multiple judge models
+with disagreement-based escalation to human review; embeddings-based (not
+regex-based) faithfulness checking; statistical significance testing on
+pass-rate deltas rather than a flat threshold; and cost/latency tracking
+alongside quality metrics.
 
----
+## Known limitations
 
-## Background
-
-Built by a QA/SDET engineer (Pytest, Selenium, REST/SOAP API validation,
-Jenkins/GitLab CI, Oracle/MongoDB data validation) as a hands-on bridge
-into LLM evaluation and observability roles — applying the same test
-automation discipline (deterministic checks, CI quality gates, regression
-detection) to LLM-specific problems (hallucination, faithfulness,
-structured-output validation, judge calibration) that don't show up in a
-traditional API test suite.
+- `golden_set/model_outputs.jsonl` is a static, hand-written set of
+  simulated model outputs (some deliberately wrong, for testing the
+  harness's detection). The runner doesn't yet call a live target model —
+  swapping in a real API call in `harness/runner.py` is the natural next
+  step for evaluating an actual model rather than the harness itself.
+- The rubric's faithfulness/correctness checks are regex- and
+  token-overlap-based, not embedding- or NLI-based, so they're coarse
+  proxies (see `cgq_04` in the failing-examples table for a case where the
+  rubric alone would have passed a wrong answer — the judge caught it).
+- The golden set is small (24 examples) by design for this scope; see
+  `SAMPLING_RATIONALE.md` for what a larger version would look like.
